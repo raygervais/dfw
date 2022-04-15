@@ -1,0 +1,12 @@
+.main-page {
+  &__options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    padding: 1rem 0 0 1rem;
+
+    min-height: 60vh;
+  }
+}
