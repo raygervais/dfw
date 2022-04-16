@@ -1,0 +1,37 @@
+{{ define "index.tmpl"}}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+
+    <title>D4W - Down for whatever</title>
+  </head>
+  <body>
+    <section class="main-page">
+      <div class="container">
+        <div class="container__options">
+          <a href="host">
+            <button class="btn-primary btn-primary--tertiary" type="button">
+              Host A Room
+            </button>
+          </a>
+          {{ .title }}
+          <button class="btn-primary btn-primary--tertiary">Join A Room</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+{{end}}
