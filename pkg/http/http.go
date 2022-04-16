@@ -131,7 +131,7 @@ func NewRoutes(r *gin.Engine, db *db.Database) {
 		}
 
 		c.HTML(http.StatusOK, "room.comment.tmpl", gin.H{
-			"title":  room.Prompts[0].Text,
+			"title":  room.Prompt.Text,
 			"roomId": room.Id,
 		})
 	})
