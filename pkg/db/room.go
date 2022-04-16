@@ -1,6 +1,7 @@
 package db
 
 import (
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
@@ -9,7 +10,7 @@ import (
 
 func (db *Database) AddRoom(room *entities.Room) {
 	if room.Id == "" {
-		room.Id = uuid.New().String()
+		room.Id = strings.Split(uuid.New().String(), "-")[0]
 	}
 
 	if room.CreatedOn == "" {
