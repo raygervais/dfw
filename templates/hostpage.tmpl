@@ -1,0 +1,54 @@
+{{ define "host.tmpl"}}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <script src="/static/js/functionality.js"></script>
+    <title>D4W - Down for whatever</title>
+  </head>
+  <body>
+    <section class="host-page">
+      <form type="POST" onsubmit="formatJson(event)">
+        <div class="container">
+          <div class="container__options">
+            <div class="input">
+              <input
+                type="text"
+                id="input--question"
+                name="prompt"
+                class="input--text"
+                placeholder="Type Your Question"
+              />
+              <label for="input" class="input--label">Ask A Question</label>
+            </div>
+            <div class="input">
+              <input
+                type="text"
+                id="input--email"
+                name="hostemail"
+                class="input--text"
+                placeholder="Enter Email"
+              />
+              <label for="input2" class="input--label">Enter Email</label>
+            </div>
+            <button class="btn-primary btn-primary--tertiary">
+              Create Room
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
+
+{{ end }}
