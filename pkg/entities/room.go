@@ -9,4 +9,6 @@ type Room struct {
 	CreatedOn  string      `json:"createdOn"`
 }
 
+// tODO: Gets prompt from create request
+
 type RoomList []Room

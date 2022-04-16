@@ -73,14 +73,14 @@ func TestApiCRUD(t *testing.T) {
 			endpoint: "/rooms/123/prompts",
 			method:   "POST",
 			status:   201,
-			body:     `{"comment":"Hello, world!", "active":true, "id":"123"}`,
+			body:     `{"text":"Who is the Batman?", "active":true, "id":"123"}`,
 		},
 		{
 			desc:     "Add a prompt to a room that doesn't exist",
 			endpoint: "/rooms/456/prompts",
 			method:   "POST",
 			status:   400,
-			body:     `{"comment":"Hello, world!"}`,
+			body:     `{"text":"Who is the Batman?"}`,
 		},
 		{
 			desc:     "Add a comment to a room with ID 123",
@@ -110,9 +110,6 @@ func TestApiCRUD(t *testing.T) {
 			status:   400,
 			body:     `{"hostEmail":"test@example.com","id":"456","timeToLive":-1}`,
 		},
-		{
-		
-		}
 
 		// {
 		// 	desc:     "Valid DELETE on /rooms/123",

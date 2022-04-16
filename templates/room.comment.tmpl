@@ -1,0 +1,47 @@
+{{ define "room.comment.tmpl" }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+
+    <title>D4W - Down for whatever</title>
+  </head>
+  <body>
+    <section class="host-page">
+      <form action="/room/{{.roomId}}/comment" method="POST">
+        <div class="container">
+          <div class="container__options">
+            <h3 class="header-3">{{.title}}</h3>
+            <div class="input">
+              <textarea
+                rows="5"
+                cols="40"
+                type="text"
+                id="input--question"
+                class="input--text-box"
+                placeholder="Answer Here"
+              ></textarea>
+              <label for="input--question" class="input--label"
+                >Comment Box</label
+              >
+            </div>
+            <button class="btn-primary btn-primary--submit" type="submit">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
+
+{{ end }}

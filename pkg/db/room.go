@@ -14,7 +14,8 @@ func (db *Database) AddRoom(room *entities.Room) error {
 		return errors.New("invalid room timeToLive provided") // Do not add room
 	}
 	if room.Id == "" {
-		room.Id = strings.Split(uuid.New().String(), "-")[0]
+		tempId := strings.Split(uuid.New().String(), "-")[0]
+		room.Id = tempId[0:4]
 	}
 
 	if room.CreatedOn == "" {
