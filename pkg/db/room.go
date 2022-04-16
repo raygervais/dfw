@@ -1,6 +1,7 @@
 package db
 
 import (
+	"errors"
 	"strings"
 	"time"
 
@@ -8,7 +9,10 @@ import (
 	"github.com/raygervais/dfw/pkg/entities"
 )
 
-func (db *Database) AddRoom(room *entities.Room) {
+func (db *Database) AddRoom(room *entities.Room) error {
+	if room.TimeToLive <= 0 {
+		return errors.New("invalid room timeToLive provided") // Do not add room
+	}
 	if room.Id == "" {
 		room.Id = strings.Split(uuid.New().String(), "-")[0]
 	}
@@ -19,10 +23,12 @@ func (db *Database) AddRoom(room *entities.Room) {
 
 	for _, r := range db.Rooms {
 		if r.Id == room.Id {
-			return
+			return errors.New("room already exists")
 		}
 	}
+
 	db.Rooms = append(db.Rooms, *room)
+	return nil
 }
 
 // Update Room

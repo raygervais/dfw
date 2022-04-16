@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io/ioutil"
 	"net/http"
 	"strings"
 	"testing"
@@ -102,6 +103,17 @@ func TestApiCRUD(t *testing.T) {
 			status:   400,
 			body:     `{"comment":true,"id":123"}`,
 		},
+		{
+			desc:     "Create a room which expires -1 minutes ago which should fail",
+			endpoint: "/rooms",
+			method:   "POST",
+			status:   400,
+			body:     `{"hostEmail":"test@example.com","id":"456","timeToLive":-1}`,
+		},
+		{
+		
+		}
+
 		// {
 		// 	desc:     "Valid DELETE on /rooms/123",
 		// 	endpoint: "/rooms/123",
@@ -122,6 +134,9 @@ func TestApiCRUD(t *testing.T) {
 				t.Errorf("Expected status code: %d, got: %d", tC.status, resp.StatusCode)
 				t.Fail()
 
+				// Print Body
+				body, _ := ioutil.ReadAll(resp.Body)
+				t.Logf("Body: %s", body)
 			}
 		})
 	}

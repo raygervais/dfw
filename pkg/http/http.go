@@ -30,7 +30,11 @@ func NewRoutes(r *gin.Engine, db *db.Database) {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
-		db.AddRoom(&room)
+		if err := db.AddRoom(&room); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+
 		c.JSON(http.StatusCreated, room)
 		return
 	})
