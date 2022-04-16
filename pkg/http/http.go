@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/raygervais/dfw/pkg/db"
+	"github.com/raygervais/dfw/pkg/entities"
 )
 
 // Create a GIN server
@@ -19,10 +20,10 @@ func NewServer(port int) *gin.Engine {
 // Create CRUD routes for DB
 // func NewRoutes(r *gin.Engine, db *db.Database) {
 
-// 	// Create a new route group
+// // 	// Create a new route group
 // 	v1 := r.Group("/v1")
 
-// 	// Add a route to the server
+// // 	// Add a route to the server
 // 	v1.POST("/rooms", func(c *gin.Context) {
 // 		var room entities.Room
 // 		if err := c.BindJSON(&room); err != nil {
@@ -125,6 +126,29 @@ func NewRoutes(r *gin.Engine, db *db.Database) {
 			"title": "RAY FIGURED IT OUT, which I BELIEVE IS AN AMAZING THING BEST",
 		})
 	})
+
+		rootGroup.GET("/host", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "host.tmpl", gin.H{
+			"title": "RAY FIGURED IT OUT, which I BELIEVE IS AN AMAZING THING BEST",
+		})
+	})
+
+	rootGroup.POST("/rooms", func(c *gin.Context) {
+		var room entities.Room
+		if err := c.BindJSON(&room); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+		if err := db.AddRoom(&room); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+
+		c.JSON(http.StatusCreated, room)
+		return
+	})
+
+
 
 	// rootGroup.GET("/rooms/:id", func(c *gin.Context) {
 	// 	id := c.Param("id")
