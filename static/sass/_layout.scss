@@ -9,7 +9,33 @@
 
     min-height: 60vh;
   }
+
+  &__modal {
+    display: none;
+    visibility: none;
+  }
 }
 
-.host-page {
+// .host-page {
+// }
+
+.page404 {
+  width: 50vw;
+  height: 40vh;
+  color: var(--color-tertiary);
+  display: flex;
+  overflow: hidden;
+  font-family: "Bangers", cursive;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &__notfound {
+    font-size: 5rem;
+    box-shadow: 0.2rem 0.8rem 1.6rem rgba(0, 0, 0, 1.5);
+    padding: 5rem;
+    color: var(--color-primary);
+  }
 }
