@@ -142,6 +142,15 @@ body {
   font-size: 5vw;
   color: var(--color-grey-light-3); }
 
+.header-1 {
+  position: relative;
+  z-index: 2;
+  font-size: 30em;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  transform: rotate(-10deg);
+  text-shadow: 1px 1px #ac8c39, 2px 2px #997c33, 3px 3px #866d2d, 4px 4px #82692b, 5px 5px #7e662a, 6px 6px #7a6329, 7px 7px #776028, 8px 8px #735d26, 9px 9px #6f5a25, 10px 10px #6b5724, 10px 10px 30px rgba(0, 0, 0, 0.7); }
+
 .main-page__options {
   display: flex;
   flex-direction: column;
@@ -150,3 +159,25 @@ body {
   align-content: space-between;
   padding: 1rem 0 0 1rem;
   min-height: 60vh; }
+
+.main-page__modal {
+  display: none;
+  visibility: none; }
+
+.page404 {
+  width: 50vw;
+  height: 40vh;
+  color: var(--color-tertiary);
+  display: flex;
+  overflow: hidden;
+  font-family: "Bangers", cursive;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; }
+  .page404__notfound {
+    font-size: 5rem;
+    box-shadow: 0.2rem 0.8rem 1.6rem black;
+    padding: 5rem;
+    color: var(--color-primary); }

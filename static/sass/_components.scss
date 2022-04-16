@@ -111,3 +111,18 @@
   font-size: 5vw;
   color: var(--color-grey-light-3);
 }
+
+.header-1 {
+  position: relative;
+  z-index: 2;
+  font-size: 30em;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  transform: rotate(-10deg);
+  text-shadow: 1px 1px hsl(43, 50%, 45%), 2px 2px hsl(43, 50%, 40%),
+    3px 3px hsl(43, 50%, 35%), 4px 4px hsl(43, 50%, 34%),
+    5px 5px hsl(43, 50%, 33%), 6px 6px hsl(43, 50%, 32%),
+    7px 7px hsl(43, 50%, 31%), 8px 8px hsl(43, 50%, 30%),
+    9px 9px hsl(43, 50%, 29%), 10px 10px hsl(43, 50%, 28%),
+    10px 10px 30px rgba(0, 0, 0, 0.7);
+}
