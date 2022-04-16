@@ -127,10 +127,8 @@ func NewRoutes(r *gin.Engine, db *db.Database) {
 		})
 	})
 
-		rootGroup.GET("/host", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "host.tmpl", gin.H{
-			"title": "RAY FIGURED IT OUT, which I BELIEVE IS AN AMAZING THING BEST",
-		})
+	rootGroup.GET("/host", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "host.tmpl", nil)
 	})
 
 	rootGroup.POST("/rooms", func(c *gin.Context) {
@@ -147,8 +145,6 @@ func NewRoutes(r *gin.Engine, db *db.Database) {
 		c.JSON(http.StatusCreated, room)
 		return
 	})
-
-
 
 	// rootGroup.GET("/rooms/:id", func(c *gin.Context) {
 	// 	id := c.Param("id")
