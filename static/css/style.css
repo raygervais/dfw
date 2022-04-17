@@ -1,20 +1,3 @@
-/*
-COLORS
-
-Primary: #eb2f64
-Primary light: #FF3366
-Primary dark: #BA265D
-
-Grey light 1: #faf9f9
-Grey light 2: #f4f2f2
-Grey light 3: #f0eeee
-Grey light 4: #ccc
-
-Grey dark 1: #333
-Grey dark 2: #777
-Grey dark 3: #999
-
-*/
 :root {
   --color-primary: #264653;
   --color-secondary: #f4a261;
@@ -80,6 +63,9 @@ body {
     box-shadow: 0 1rem 2rem rgba(42, 157, 143, 0.5); }
     .btn-primary--submit:hover {
       box-shadow: 0 1rem 2rem rgba(42, 157, 143, 0.6); }
+  .btn-primary--small {
+    min-width: 10vw;
+    min-height: 10vh; }
 
 .container {
   margin: 6rem 4rem auto;
@@ -104,12 +90,14 @@ body {
     display: block;
     padding: 2rem 2rem;
     color: inherit;
-    width: 60vw;
+    width: 100%;
+    height: 2vh;
     font-size: 3rem;
     line-height: 1.5rem;
     border: none;
     border-radius: 0.4rem;
-    transition: box-shadow 0.5s; }
+    transition: box-shadow 0.5s;
+    margin-left: 2rem; }
     .input--text::placeholder {
       color: var(--color-secondary); }
     .input--text:focus {
@@ -150,6 +138,45 @@ body {
   text-transform: uppercase;
   transform: rotate(-10deg);
   text-shadow: 1px 1px #ac8c39, 2px 2px #997c33, 3px 3px #866d2d, 4px 4px #82692b, 5px 5px #7e662a, 6px 6px #7a6329, 7px 7px #776028, 8px 8px #735d26, 9px 9px #6f5a25, 10px 10px #6b5724, 10px 10px 30px rgba(0, 0, 0, 0.7); }
+
+.modal {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s; }
+  .modal__input {
+    width: 25vw; }
+  .modal:target {
+    opacity: 1;
+    visibility: visible; }
+  .modal__button {
+    width: 10vw; }
+  .modal__content {
+    display: flex;
+    box-shadow: 2rem 2rem 2rem 2rem rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    width: 40vw;
+    height: 25vh;
+    padding: 2rem 2rem 2rem 2rem;
+    background-image: linear-gradient(to right bottom, var(--color-background1), var(--color-background2));
+    position: absolute;
+    top: 25%;
+    left: 30%; }
+  .modal__close {
+    font-size: 5rem;
+    position: absolute;
+    top: -10%;
+    right: 3%;
+    text-decoration: none;
+    color: var(--color-primary); }
 
 .main-page__options {
   display: flex;
