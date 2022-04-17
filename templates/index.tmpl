@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <script src="/static/js/functionality.js"></script>
 
     <title>D4W - Down for whatever</title>
   </head>
@@ -30,6 +31,7 @@
 		  </a>
         </div>
       </div>
+      <form onsubmit="getRoomIdForRedirect(event)">
 	        <div class="modal" id="modal">
         <div class="modal__content">
           <div class="modal__input">
@@ -37,6 +39,7 @@
               type="text"
               id="id"
               class="input--text"
+              name="roomId"
               placeholder="Room"
               maxlength="4"
             />
@@ -50,6 +53,7 @@
           <a href="#main-page" class="modal__close">&times;</a>
         </div>
       </div>
+      </form>
     </section>
   </body>
 </html>
