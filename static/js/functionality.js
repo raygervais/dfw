@@ -54,3 +54,13 @@ function formatJsonForCommentSubmission(event, id) {
     .then((res) => res.json())
     .catch((err) => console.log(err));
 }
+
+function getRoomIdForRedirect(event) {
+  event.preventDefault();
+  const data = new FormData(event.target);
+
+  value = Object.fromEntries(data.entries());
+  console.log(value)
+  redirect(`room/${value.roomId}`)
+}
+
