@@ -1,5 +1,4 @@
-{{ define "host.tmpl"}}
-
+{{ define "room.comment.tmpl" }}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,31 +17,26 @@
   </head>
   <body>
     <section class="host-page">
-      <form type="POST" onsubmit="formatJsonForPromptSubmission(event)">
+      <form onsubmit="formatJsonForCommentSubmission(event, {{ .roomId }})" method="POST">
         <div class="container">
           <div class="container__options">
+            <h3 class="header-3">{{.title}}</h3>
             <div class="input">
-              <input
+              <textarea
+                rows="5"
+                cols="40"
                 type="text"
-                id="input--question"
-                name="prompt"
-                class="input--text"
-                placeholder="Type Your Question"
-              />
-              <label for="input" class="input--label">Ask A Question</label>
+                name="comment"
+                id="input--comment"
+                class="input--text-box"
+                placeholder="Answer Here"
+              ></textarea>
+              <label for="input--comment" class="input--label"
+                >Comment Box</label
+              >
             </div>
-            <div class="input">
-              <input
-                type="email"
-                id="input--email"
-                name="hostemail"
-                class="input--text"
-                placeholder="Enter Email"
-              />
-              <label for="input2" class="input--label">Enter Email</label>
-            </div>
-            <button class="btn-primary btn-primary--tertiary">
-              Create Room
+            <button class="btn-primary btn-primary--submit" type="submit">
+              Submit
             </button>
           </div>
         </div>

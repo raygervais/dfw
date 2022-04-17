@@ -10,12 +10,19 @@ RUN go mod tidy
 
 RUN go build -o main cmd/dfw/main.go
 
-FROM alpine:latest as RUNNER
+FROM golang:1.17.8 as RUNNER
 
 EXPOSE 8080
 
 WORKDIR /app
 
-COPY --from=BUILDER /app/main main
+COPY --from=BUILDER /app/main .
 
-ENTRYPOINT [ "main" ]
+COPY templates templates
+COPY static static
+
+RUN chmod +x main
+RUN ls 
+
+ENTRYPOINT ["./main"]
+
