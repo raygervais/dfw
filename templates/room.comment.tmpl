@@ -12,12 +12,12 @@
     />
     <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
-
+    <script src="/static/js/functionality.js"></script>
     <title>D4W - Down for whatever</title>
   </head>
   <body>
     <section class="host-page">
-      <form action="/room/{{.roomId}}/comment" method="POST">
+      <form onsubmit="formatJsonForCommentSubmission(event, {{ .roomId }})" method="POST">
         <div class="container">
           <div class="container__options">
             <h3 class="header-3">{{.title}}</h3>
@@ -26,11 +26,12 @@
                 rows="5"
                 cols="40"
                 type="text"
-                id="input--question"
+                name="comment"
+                id="input--comment"
                 class="input--text-box"
                 placeholder="Answer Here"
               ></textarea>
-              <label for="input--question" class="input--label"
+              <label for="input--comment" class="input--label"
                 >Comment Box</label
               >
             </div>

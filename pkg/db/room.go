@@ -60,14 +60,17 @@ func (db *Database) RemoveRoom(id string) {
 	}
 }
 
-// Remove rooms which TimeToLive has expired
-func (db *Database) RemoveExpiredRooms() {
+func (db *Database) ListExpiredRooms() entities.RoomList {
+	expiredRooms := entities.RoomList{}
+
 	for i, room := range db.Rooms {
 		// compare the current time to the createdOn time
 		// if the difference is greater than the TimeToLive, remove the room
 		createdOn, _ := time.Parse(time.RFC3339, room.CreatedOn)
 		if time.Now().Sub(createdOn) > time.Duration(room.TimeToLive)*time.Minute {
-			db.Rooms = append(db.Rooms[:i], db.Rooms[i+1:]...)
+			expiredRooms = append(expiredRooms, db.Rooms[i])
 		}
 	}
+
+	return expiredRooms
 }

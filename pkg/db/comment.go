@@ -14,18 +14,20 @@ func (db *Database) AddComment(id string, comment *entities.Comment) error {
 	}
 
 	//Check if comment exists
-	for _, c := range room.Comments {
-		if c.Id == comment.Id {
-			return errors.New("Comment already exists")
+	if comment.Id != "" {
+		for _, c := range room.Comments {
+			if c.Id == comment.Id {
+				return errors.New("Comment already exists")
+			}
 		}
-	}
-
-	if comment.Id == "" {
+	} else {
 		comment.Id = uuid.New().String()
 	}
 
 	room.Comments = append(room.Comments, *comment)
+
 	db.UpdateRoom(room)
+
 	return nil
 }
 
