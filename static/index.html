@@ -23,17 +23,32 @@
               Host A Room
             </button>
           </a>
-          <button class="btn-primary btn-primary--tertiary">Join A Room</button>
+          <a href="#modal"
+            ><button class="btn-primary btn-primary--tertiary">
+              Join A Room
+            </button></a
+          >
         </div>
       </div>
-      <div class="main-page__modal">
-        <input
-          type="text"
-          id="id"
-          class="input__text"
-          placeholder="Type Room Number"
-        />
-        <label for="id">Type Room Number</label>
+      <div class="modal" id="modal">
+        <div class="modal__content">
+          <div class="modal__input">
+            <input
+              type="text"
+              id="id"
+              class="input--text"
+              placeholder="Room"
+              maxlength="4"
+            />
+            <label class="input--label" for="id">Type Room Number</label>
+          </div>
+          <div class="modal__button">
+            <button class="btn-primary--submit btn-primary--small">
+              Join Room
+            </button>
+          </div>
+          <a href="#main-page" class="modal__close">&times;</a>
+        </div>
       </div>
     </section>
   </body>
